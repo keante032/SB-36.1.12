@@ -57,6 +57,7 @@ router.post("/:id/read", async function (req, res, next) {
         // can't use ensureCorrectUser() because it expects username to be in req.params
         if (req.user.username === msg.to_user.username) {
             const readMsg = await Message.markRead(req.params.id);
+            return res.json({ message: readMsg });
         } else {
             return next({ status: 401, message: "Unauthorized" });
         }
