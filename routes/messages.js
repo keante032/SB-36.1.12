@@ -1,7 +1,7 @@
 const Router = require("express").Router;
 const router = new Router();
 const Message = require("../models/message");
-const { ensureLoggedIn, ensureCorrectUser } = require("../middleware/auth");
+const { ensureLoggedIn } = require("../middleware/auth");
 
 /** GET /:id - get detail of message.
  *
@@ -62,3 +62,5 @@ router.post("/:id/read", async function (req, res, next) {
         }
     } catch (e) { return next(e); }
 });
+
+module.exports = router;

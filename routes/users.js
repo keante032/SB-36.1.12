@@ -58,3 +58,5 @@ router.get("/:username/from", ensureCorrectUser, async function (req, res, next)
         return res.json({messages});
     } catch (e) { return next(e); }
 });
+
+module.exports = router;
